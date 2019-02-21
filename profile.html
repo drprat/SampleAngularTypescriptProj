@@ -1,0 +1,22 @@
+﻿<div id="profileView" ng-controller="ProfileController as profileCtrl" class="col-lg-4 col-lg-offset-4 form-main">
+    <h3>Profile page</h3>
+    <div>
+        <ul>
+            <li><span>{{profile.FirstName}} {{profile.LastName}}</span></li>
+            <li><span>Score: {{profile.ReputationScore}}</span></li>
+            <li><span>Ranking: #{{profile.Ranking}}</span></li>
+            <li><span ng-repeat="workTag in profile.WorkTags">#{{workTag}}{{$last ? '' : ' '}}</span></li>
+        </ul>
+    </div>
+    <h4>Activities:</h4>
+    <div>
+        <ul ng-repeat="activity in profile.Activities">
+            <li><span >{{activity.Date}} {{activity.Interaction}} + {{activity.Score}}</span></li>
+        </ul>
+    </div>
+    <div ng-if="!isMe">
+        <button>Congratulate</button>
+        <button>Endrose</button>
+        <button>Follow</button>
+    </div>
+</div>
